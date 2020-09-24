@@ -1,0 +1,21 @@
+$roboto-font-path: '/assets/fonts/Roboto/' !default
+$comfortaa-font-path: '/assets/fonts/Comfortaa/' !default
+
+@mixin font-face($folder, $family, $type, $weight, $style)
+    @font-face
+        font-family: '#{$family}'
+        font-weight: $weight
+        font-style: $style
+        src: url('#{$folder}#{$family}-#{$type}.ttf') format('truetype')
+
+@include font-face($roboto-font-path, 'Roboto', 'Black', 900, normal)
+@include font-face($roboto-font-path, 'Roboto', 'Bold', 700, normal)
+@include font-face($roboto-font-path, 'Roboto', 'Light', 300, normal)
+@include font-face($roboto-font-path, 'Roboto', 'Medium', 500, normal)
+@include font-face($roboto-font-path, 'Roboto', 'Regular', 400, normal)
+
+@include font-face($comfortaa-font-path, 'Comfortaa', 'Bold', 700, normal)
+@include font-face($comfortaa-font-path, 'Comfortaa', 'Light', 300, normal)
+@include font-face($comfortaa-font-path, 'Comfortaa', 'Medium', 500, normal)
+@include font-face($comfortaa-font-path, 'Comfortaa', 'Regular', 400, normal)
+@include font-face($comfortaa-font-path, 'Comfortaa', 'SemiBold', 600, normal)

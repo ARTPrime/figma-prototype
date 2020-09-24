@@ -1,0 +1,65 @@
+$btn-padding: 1rem 1rem
+$btn-rounded-radius: 1rem
+$btn-squared-radius: 0.125rem
+$btn-font-size: 0.8125rem
+$btn-font-color: black
+$btn-border-width: 0.125rem
+$btn-font-weight: 700 
+$btn-transition-speed: 250ms
+    
+.btn
+    display: inline-flex
+    position: relative
+    justify-content: center
+    align-items: center
+    min-height: 2rem
+    padding: $btn-padding
+    border: 2px solid black
+    background-color: transparent
+    font-size: $btn-font-size
+    font-weight: 900
+    text-transform: uppercase
+    text-align: center
+    color: $btn-font-color
+    cursor: pointer
+    transition: background, width, margin, color, $btn-transition-speed ease-out
+    overflow: hidden
+    border-radius: 6px
+    &::after
+        position: absolute
+        content: ""
+        background: #ffffff
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        border-radius: 50%
+        opacity: 0
+        transition: transform, opacity, 300ms linear
+    &::before
+        position: absolute
+        content: ""
+        background: #ffffff
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        border-radius: 50%
+        opacity: 0
+        transition: transform, opacity, 300ms linear
+        transform: scale(1)
+    // &:hover::after
+    //     animation: shine 300ms ease-in
+    &:hover::before
+        opacity: 0.2
+        transform: scale(1)
+        border-radius: 0
+    &:active::after
+        opacity: 1
+        transform: scale(0)
+        transition: 0ms
+    &:focus
+        outline: none
+.btn-dark
+    background: black
+    color: white

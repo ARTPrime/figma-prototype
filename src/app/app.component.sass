@@ -1,0 +1,82 @@
+:host
+    position: relative
+    display: grid
+    grid-template-rows: 1fr auto
+    grid-template-columns: 1fr auto
+    grid-template-areas: 'banner form' 'actions form'
+    height: 100%
+    overflow: hidden
+    .banner
+        background: linear-gradient(164.29deg, #71BBDA 0%, #F2BCCE 48.44%, #60839A 100%)
+        grid-area: banner
+        display: flex
+        flex-direction: column
+        .logo
+            margin: auto
+        .recent
+            margin: 0 0 1rem 1rem
+            :hover
+                cursor: pointer
+            img
+                width: 28px
+                height: 28px
+                border-radius: 50%
+            figcaption
+                display: inline-block
+                margin: 0.5rem
+                font-size: 13px
+                font-weight: 700
+                span
+                    display: block
+                    font-size: 11px
+                    font-weight: 400
+    .actions
+        background: white
+        grid-area: actions
+        display: flex
+        justify-content: space-around
+        align-content: center
+        padding: 1rem
+        z-index: 1000
+        button 
+            width: 45%
+    .form
+        background: white
+        height: 100%
+        grid-area: form
+        position: absolute
+        bottom: 0
+        right: 0
+        width: 100vw
+        transition: width 300ms ease-in
+    .welcome
+        display: none
+
+@media screen and ( min-width: 756px )
+    :host
+        grid-template-columns: 1fr 1fr
+        grid-template-areas: 'banner welcome' 'banner actions'
+        .action-selected
+            grid-template-areas: 'banner form' 'actions form'
+    .actions
+        button 
+            width: 40%
+    .form
+        width: 50vw !important
+    .welcome
+        grid-area: welcome
+        display: flex !important
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        h1
+            display: block
+            padding: 1rem
+        hr
+            border: 2px solid #F2BCCE
+            width: 40%
+            margin-top: 3rem
+            border-radius: 2px
+        .logo
+            margin-top: 15%
+            opacity: 50%

@@ -1,0 +1,37 @@
+<section @slideInRight class="banner">
+    <fg-logo class="logo slide-item" [size]="'normal'"></fg-logo>
+    <figure class="recent slide-item">
+        <img [src]="user.image" [alt]="user.name" width="36" height="36" />
+        <figcaption>
+            {{ user.displayName }} <span>{{ user.name }}</span>
+        </figcaption>
+    </figure>
+</section>
+<section @slideInRight class="actions" *ngIf="!action">
+    <button class="btn slide-item" (click)="onActionClick('login')">
+        Log in
+    </button>
+    <button class="btn btn-dark slide-item" (click)="onActionClick('register')">
+        Register
+    </button>
+</section>
+<section @navExpand @slideInRight class="form" *ngIf="action; else welcome">
+    <fg-login
+        *ngIf="action === 'login'"
+        class="slide-item"
+        (goBack)="onActionClick('login')"
+    ></fg-login>
+    <fg-register
+        *ngIf="action === 'register'"
+        class="slide-item"
+        (goBack)="onActionClick('register')"
+    ></fg-register>
+</section>
+<ng-template #welcome>
+    <section @slideInRight class="welcome" *ngIf="!action">
+        <h1 class="slide-item">Experience</h1>
+        <h1 class="slide-item">Snap &</h1>
+        <h1 class="slide-item">Share</h1>
+        <hr class="slide-item" />
+    </section>
+</ng-template>
